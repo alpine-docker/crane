@@ -2,6 +2,8 @@
 
 https://github.com/google/go-containerregistry/tree/main/cmd/crane
 
+Follow up blog: [Copying and Tagging Multi-Architecture Images](https://medium.com/@ozbillwang/multi-arch-image-copy-and-tag-a7d95c43e3b7)
+
 ### usage #1
 
 ```
