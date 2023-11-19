@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine as builder
 
 ARG ARCH
 
@@ -27,6 +27,10 @@ RUN . /envfile && echo $ARCH && \
     mv crane /usr/bin/crane && \
     chmod +x /usr/bin/crane && \
     cd /tmp && rm -rf crane
+
+FROM alpine
+COPY --from=builder /usr/bin/crane /usr/bin/crane
+RUN chmod +x /usr/bin/crane
 
 ENTRYPOINT ["/usr/bin/crane"]
 CMD ["--help"]
