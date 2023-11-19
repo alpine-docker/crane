@@ -36,7 +36,7 @@ more .docker/config.json
 docker run -ti --rm -v $(pwd)/.docker:/root/.docker alpine/crane copy nginx ozbillwang/nginx
 ```
 
-After done, you should see the image in your account and the image has its all OS and Arch
+After done, you should see the image in your account and the image has its all OS and Arch, all DIGEST are same
 
 ![image](https://github.com/alpine-docker/crane/assets/8954908/886021e7-e723-4ccf-afe1-c77e874c5cc0)
 
