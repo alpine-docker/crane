@@ -19,7 +19,7 @@ install_jq() {
 }
 
 build() {
-  platform="${linux/arm/v7,linux/arm64/v8,linux/arm/v6,linux/amd64,linux/ppc64le,linux/s390x}"
+  platform="linux/arm/v7,linux/arm64/v8,linux/arm/v6,linux/amd64,linux/ppc64le,linux/s390x"
 
   if [[ "$CIRCLE_BRANCH" == "master" ]]; then
     docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
