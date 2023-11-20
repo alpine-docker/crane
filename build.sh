@@ -26,7 +26,7 @@ build() {
     docker buildx create --use
     docker buildx build --no-cache --push \
       --platform=${platform} \
-      --build-arg VERSION=${tag} \
+      --build-arg VERSION=v${tag} \
       -t ${image}:latest \
       -t ${image}:${tag} .
   fi
@@ -37,7 +37,7 @@ image="alpine/crane"
 install_jq
 
 # Get the latest release version.
-tag=$(curl -s "https://api.github.com/repos/google/go-containerregistry/releases/latest" | jq -r '.tag_name')
+tag=$(curl -s "https://api.github.com/repos/google/go-containerregistry/releases/latest" | jq -r '.tag_name' |sed 's/v//')
 echo "latest versions: ${tag}"
 
 status=$(curl -sL https://hub.docker.com/v2/repositories/${image}/tags/${tag})
